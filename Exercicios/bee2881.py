@@ -22,7 +22,7 @@ for al in range(n): #coleta os nomes dos alunos
 
 alpabeto = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
-for c in range(len(lista_chamada)):
+for c in range(len(lista_chamada) * 2):
     for n in range(len(lista_chamada)): #ordena os nomes em ordem alpabetica
 
         nome = lista_chamada[n]
@@ -32,14 +32,25 @@ for c in range(len(lista_chamada)):
         else: #senão ele coloca como o proximo sendo o ultimo
             proximo_n = lista_chamada[-1]
         
+        #print(nome, proximo_n)
+
         i_nome = lista_chamada.index(nome) #pega os inidices na chamada do nome e do depois do nome
         i_prox = lista_chamada.index(proximo_n)
 
-        if alpabeto.index(nome[0]) > alpabeto.index(proximo_n[0]): #troca de lugar na lista, com referencia no indice do alpabeto
+        if (alpabeto.index(nome[0]) > alpabeto.index(proximo_n[0]) or alpabeto.index(proximo_n[0]) < alpabeto.index(nome[0])): 
             lista_chamada.pop(i_nome)
             lista_chamada.insert(i_nome, proximo_n)
 
             lista_chamada.pop(i_prox)
             lista_chamada.insert(i_prox, nome)
 
+        elif (alpabeto.index(nome[1]) > alpabeto.index(proximo_n[1]) or alpabeto.index(proximo_n[1]) < alpabeto.index(nome[1])): 
+            lista_chamada.pop(i_nome)
+            lista_chamada.insert(i_nome, proximo_n)
+
+            lista_chamada.pop(i_prox)
+            lista_chamada.insert(i_prox, nome)
+        
+
+        #print(lista_chamada,n)
 print(lista_chamada[k-1])
