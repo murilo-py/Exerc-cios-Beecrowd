@@ -17,17 +17,28 @@ O conjunto de valores válidos como saída são: MONDAY, TUESDAY, WEDNESDAY, THU
 #"01234567"
 #"AAA-9999"
 qtd = int(input())
+tabela = [
+    [1, 2, 'MONDAY'],
+    [3, 4, 'TUESDAY'],
+    [5, 6, 'WEDNESDAY'],
+    [7, 8, 'THURSDAY'],
+    [9, 0, 'FRIDAY']
+]
 
 for q in range(qtd):
     placa = input()
-
     if len(placa) != 8:
         print('FAILURE')
-        
-    
-    elif (placa[0:3].isalpha() and placa[0:3].isupper() and placa[3] == '-' and placa[4:8].isdigit()): 
-          
-        print('SUCCESS')
-    else:
+    elif placa[3] != '-':
         print('FAILURE')
-
+    else:
+        try:
+            numeros = int(placa[4:8])
+            if 'A' <= placa[0] <= 'Z' and 'A' <= placa[1] <= 'Z' and 'A' <= placa[2] <= 'Z':
+                for i in range(len(tabela)):
+                    if int(placa[7]) == tabela[i][0] or int(placa[7]) == tabela[i][1]:
+                        print(tabela[i][2])
+            else:
+                print('FAILURE')
+        except ValueError:
+            print('FAILURE')
