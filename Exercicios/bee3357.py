@@ -27,7 +27,8 @@ while True:
         break
     elif l_garrafa == l_copo:
         print(f'{nome_at} {l_copo}')
-        
+        break
+
     l_garrafa -= l_copo 
     ciclo += 1
     
