@@ -9,3 +9,24 @@ O programa deve imprimir um valor inteiro. Este valor é a soma dos valores ímp
 '''
 
 x = int(input())
+y = int(input())
+
+soma = 0
+
+if x > y:  #Tem maneiras melhores de resolver? Sim, mas aq é a moda pratica! :) (LISTA QUE NÃO ACABA MAISSSSS)
+    maior = x
+    menor = y
+elif y > x:
+    maior = y
+    menor = x
+else:
+    menor = x
+    maior = menor
+
+for c in range(menor + 1, maior):
+    if c % 2 != 0:
+        soma += (c)
+
+print(soma)
+
+    
