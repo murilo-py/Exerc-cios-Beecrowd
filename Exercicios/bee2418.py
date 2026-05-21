@@ -13,21 +13,20 @@ Seu programa deve imprimir uma única linha, contendo um único número com exat
 '''
 
 lista = list(map(float, input().split()))
-lista_ordenada = []
-menoritem = lista[0]
-try:
-    for indice in range(5):
-        item_a = lista[indice]
 
-        for j in range(5):
-            item_b = lista[indice]
+menor = lista[0]
+maior = lista[0]
+for indice in range(1, len(lista)):
+    item = lista[indice]
+    if item > maior:
+        maior = item
+    if item < menor:
+        menor = item
 
-            if item_a > item_b:
-                menoritem = item_b
+lista.remove(menor)
+lista.remove(maior)
 
-        lista_ordenada.append(menoritem)
-    
-
-except IndexError:
-    pass
-print(lista_ordenada)
+soma = 0
+for valor in range(len(lista)):
+    soma += lista[valor]
+print(f"{soma:.1f}")
