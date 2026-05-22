@@ -17,6 +17,23 @@ A entrada é composta por vários casos de teste. Cada caso de teste é iniciado
 Saída
 Para cada caso de teste, o programa deve imprimir a soma total de conexões entre cliente e servidores em uma linha, desconsiderando múltiplas conexões entre um mesmo par de cliente e servidor.
 '''
+def meuIn(valor, lista):
+    '''
+    Verifica se valor está na lista e retorna um valor do tipo Bool.
+    Função criada para evitar ser pythonista.
+
+    valor : Variável que deseja verificar se esta na lista.
+    lista : Vetor de valores que deseja verificar.
+    '''
+
+    for v in range(len(lista)):
+        v_observado = lista[v]
+
+        if valor == v_observado:  
+                return True
+        
+    return False
+
 
 while True:
     q_serv, q_client = map(int, input().split())
@@ -39,10 +56,19 @@ while True:
     for y in range(len(clientes)):
         clientes[y].pop(0)
 
-    contador_c = 0
-    for j in range(len(servidores)): #Para cada servidor na lista de servidores.
-        for servidor in range(len(servidores[j])): #para servidor no tamanho desse servidor j.
-            lista_c = clientes[contador_c]
-            for v in range()
+    
+    for cliente in clientes: # Para cada cliente na lista de clientes
+        for servidor in servidores: # Testamos contra cada servidor disponível
+            
+            conectou = False
+            
+            for app in cliente: 
+                if meuIn(app, servidor): #SEM USAR FUNÇÃO DO PYTHON :)
+                    conectou = True
+                    break 
+            if conectou:
+                conexões += 1 # Conta 1 conexão 
+                
+    print(conexões)
 
 
