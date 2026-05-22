@@ -18,3 +18,31 @@ Saída
 Para cada caso de teste, o programa deve imprimir a soma total de conexões entre cliente e servidores em uma linha, desconsiderando múltiplas conexões entre um mesmo par de cliente e servidor.
 '''
 
+while True:
+    q_serv, q_client = map(int, input().split())
+    conexões= 0
+
+    if q_serv == 0 and q_client == 0: #Para parar o loop antes de qualquer coisa.
+        break
+
+    servidores = []
+    clientes = []
+
+    for s in range(q_serv): #Le os servidores.
+        servidores.append(input().split()) 
+
+    for c in range(q_client): #Le os clientes.
+        clientes.append(input().split()) 
+
+    for x in range(len(servidores)): #Limpando as sublistas de servidores e clientes.
+        servidores[x].pop(0)
+    for y in range(len(clientes)):
+        clientes[y].pop(0)
+
+    contador_c = 0
+    for j in range(len(servidores)): #Para cada servidor na lista de servidores.
+        for servidor in range(len(servidores[j])): #para servidor no tamanho desse servidor j.
+            lista_c = clientes[contador_c]
+            for v in range()
+
+
