@@ -22,6 +22,36 @@ def meuIn(valor, verificado): #Função que substitui o metodo "In".
             return True
     return False
 
+def meuSort(lista=list()):
+    '''
+    Função criada para fins didaticos e substituir o método sort.
+
+    Funcionamento: Ela analisa cada palavra da lista e analisa
+    qual delas a primeira letra, tem o menor indice dentro da 
+    lista alfabeto, e adiciona ela em uma nova lista corrigida.
+    '''
+    alfabeto = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'] 
+    lista_corrigida = []
+
+    while True:
+        menor_indice = 25 #consideramos o menor indice a letra "Z" já que se fosse iniciada na "A" daria erro.
+
+        if len(lista) == 0:
+            break
+
+        for x in range(len(lista)):
+            palavra_verificada = lista[x]
+
+            if alfabeto.index(palavra_verificada[0]) <= menor_indice:
+                menor_indice = alfabeto.index(palavra_verificada[0])
+                palavra_p = palavra_verificada #Palavra_p vai ser a palavra com o menor indice que nós vamos colocar na nossa lista corrigida.
+        
+        lista.remove(palavra_p)
+        lista_corrigida.append(palavra_p)
+        
+
+    return lista_corrigida
+    
 #Progama principal.
 
 qtd = int(input())
@@ -39,8 +69,8 @@ for x in range(qtd): #Loop que faz as listas.
             listaitens.remove(comando[0]) 
 
 
-            #COLOCAR EM ORDEM ALFABETICA AQ
-        
+    listaitens = meuSort(listaitens) #botando em ordem alfabetica.
+
     print('TOTAL')
 
     for i in range(len(listaitens)):
